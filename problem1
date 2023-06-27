@@ -1,0 +1,27 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+
+
+
+int main()
+{   
+    int previous_data,count=0;
+    std::ifstream depth("jitesh.txt");
+    
+    int data;
+    depth>>data;
+    previous_data=data;
+
+    while(depth)
+    {
+        depth>>data;
+       
+        
+    
+        if (previous_data<data)
+            count++;
+        previous_data=data;    
+    }
+    std::cout<<count<<std::endl;
+}
