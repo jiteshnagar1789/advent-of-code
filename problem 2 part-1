@@ -1,0 +1,43 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+
+int main()
+{   
+    int num=0,horpos=0,verpos=0;
+    std::ifstream depth("jitesh.txt");
+    std::string text,data;
+    while(getline(depth,data))
+    {
+        int i=0;
+        while(data[i]!=' ')
+        {
+            text.push_back(data[i]);
+            i++;
+        }
+        while(data[i+1])
+        {
+            num=num*10+(data[i+1]-'0');
+            i++;
+        }
+        
+        if(text=="forward")
+        {
+            horpos+=num;
+        }
+        else if(text=="down")
+        {
+            verpos+=num;
+        }
+        else
+        {
+            verpos-=num;
+        }
+        
+        text="";
+        num=0;
+    }
+    std::cout<<verpos<<"  "<<horpos<<"\n";
+    std::cout<<verpos*horpos<<"\n";
+    
+}
